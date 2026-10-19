@@ -1,10 +1,10 @@
 """
-Lichess's published accuracy method, implemented properly.
+Lichess's published accuracy method.
 
-My first version averaged per-move accuracies arithmetically, which is wrong and
-runs ~11 points generous: one catastrophic move barely dents an arithmetic mean.
+Per-move accuracies are not averaged arithmetically; that runs about 11 points
+generous, because one catastrophic move barely dents an arithmetic mean.
 Lichess combines a volatility-weighted mean with a harmonic mean, and the
-harmonic term is exactly what makes a blunder hurt.
+harmonic term is what makes a blunder hurt.
 """
 
 import math, statistics

@@ -74,13 +74,12 @@ def expected_human_loss(board, sf, maia, limit, multipv=12, infos=None):
     total_p = sum(policy.values()) or 1.0
 
     # Expected loss over the mass the engine actually priced, renormalised.
-    #
-    # The first version charged UNPRICED policy mass at the worst priced move's
-    # loss. In lopsided positions the multi-PV spread is huge and most human
-    # mass sits outside it, so difficulty exploded -- accurate moves scored
-    # "harder" than blunders, which is how the bug announced itself. Losses are
-    # also capped: once a move is 300cp worse the position is decided, and extra
-    # centipawns say nothing further about how hard the choice was.
+    # Unpriced policy mass is left out rather than charged at the worst priced
+    # move's loss: in lopsided positions the multi-PV spread is huge and most
+    # human mass sits outside it, and charging it would make accurate moves
+    # score "harder" than blunders. Losses are also capped: once a move is
+    # 300cp worse the position is decided, and extra centipawns say nothing
+    # further about how hard the choice was.
     CAP = 300
     num = sum(p * min(loss[u], CAP) for u, p in policy.items() if u in loss)
     exp = (num / covered) if covered > 0 else None

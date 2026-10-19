@@ -68,8 +68,8 @@ def is_sacrifice(board, move, min_value=150):
     A real sacrifice: the move itself loses material by static exchange, or it
     plants the moved piece where the opponent can profitably take it.
 
-    The first version also fired whenever any friendly piece was loose after the
-    move, which made every ordinary recapture look brilliant.
+    A loose friendly piece after the move is not enough on its own; that would
+    make every ordinary recapture look brilliant.
     """
     piece = board.piece_at(move.from_square)
     if piece is None or piece.piece_type == chess.PAWN:

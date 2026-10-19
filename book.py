@@ -44,10 +44,10 @@ def identify(game):
         best, last_ply = hit, ply
         if ply > 40:
             break
-    # The first version recorded the LAST matching ply anywhere in the first 40,
-    # with no contiguity requirement -- so a game matching at plies [1,2,4,10]
-    # reported 10 book plies and silently exempted the 6 non-matching moves from
-    # any criticism. classify() returns BOOK before it ever checks for an error.
+    # Book plies must be contiguous from move one: the first miss ends the book.
+    # Otherwise a game matching at plies [1,2,4,10] would report 10 book plies
+    # and exempt the non-matching moves from criticism, because classify()
+    # returns BOOK before it checks for an error.
     return {"eco": best[0] if best else None,
             "name": best[1] if best else None,
             "book_plies": last_ply}

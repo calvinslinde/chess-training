@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-The drilling loop -- the part that was missing.
+The drilling loop: spaced repetition over your own mistakes.
 
 Everything else in this project produces a static report. Reports are not
 teaching: you read them, agree, and forget. This turns your own errors into
@@ -14,8 +14,8 @@ Two design decisions worth defending:
    the queue is built from losses and errors, and it will not let you review a
    game you won cleanly.
 
-2. **Spaced repetition is used, but honestly.** There is NO published evidence
-   that spaced repetition of one's own chess mistakes raises rating -- I looked.
+2. **Spaced repetition, with its limits stated.** There is no published evidence
+   that spaced repetition of one's own chess mistakes raises rating.
    SM-2 is used here because forgetting curves are well established in general,
    not because anyone has shown it works for chess. That caveat is printed with
    the stats rather than buried.
@@ -53,12 +53,10 @@ def build(review_paths, min_drop=8.0, losses_only=False):
     """
     Turn analysed games into drillable cards, worst-value first.
 
-    `losses_only` implements what the module docstring always claimed: the
-    Riedl & Bogert asymmetry says feedback on failures helps and feedback on
-    wins hurts. The first version recorded `from_win` and never filtered on it,
-    so the one design decision here with published backing was not implemented.
+    `losses_only` applies the Riedl & Bogert asymmetry (feedback on failures
+    helps, feedback on wins hurts) by keeping only cards from games you lost.
     It is off by default because a player who wins most of their games would be
-    left with almost no cards -- but the option exists and the caveat is explicit.
+    left with almost no cards; the option exists and the caveat is explicit.
     """
     state = _load_state()
     added = 0
