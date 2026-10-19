@@ -22,6 +22,10 @@ python3 drill.py                         # builds drill cards from reports/revie
 python3 analyze.py examples/opera-game.pgn --max-games 1
 ```
 
+The review report for the example game looks like this:
+
+![The review report for the Opera Game: per-move drops, labels, and the critical moments with boards](docs/review-example.png)
+
 ## Your own games
 
 ```
