@@ -65,7 +65,7 @@ Use `--site lichess` for lichess accounts. The chess.com and lichess APIs are pu
 | features.py | Positional features: pawn structure, king safety, mobility, outposts, loose pieces, space. |
 | phases.py | Opening, middlegame, endgame boundaries, Lichess's definition. |
 | pawn_structures.py | Names the pawn structure (Carlsbad, Maróczy bind, Stonewall and so on). Run it directly to check itself. |
-| playout.py | Counterfactual playouts: what an error actually costs you, in points. |
+| playout.py | Counterfactual playouts: what an error really costs you, in points. |
 | board_svg.py | Small board images for the reports. |
 | maia.py | Runs lc0 with a Maia network and reads its move probabilities. |
 | paths.py | Where files go (see below). |
