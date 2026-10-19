@@ -1,6 +1,6 @@
 # Chess training toolkit
 
-I made these to find out which kinds of mistakes actually cost me games, not just where the engine says I went wrong. The tools pull your games from chess.com or lichess, run them through Stockfish, compare each of your moves with what players at your rating usually play (the Maia networks), and turn the moves that cost you the most into drill cards.
+I made these to find out which kinds of mistakes really cost me games, not just where the engine says I went wrong. The tools pull your games from chess.com or lichess, run them through Stockfish, compare each of your moves with what players at your rating usually play (the Maia networks), and turn the moves that cost you the most into drill cards.
 
 Everything is plain Python scripts in one folder. There is no install step beyond the two dependencies and Stockfish.
 
