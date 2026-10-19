@@ -1,0 +1,13 @@
+{
+ "params": [
+  0.08,
+  0.8,
+  2.0,
+  6.0,
+  20.0
+ ],
+ "test_rmse": 8.72,
+ "test_bias": 0.55,
+ "test_mae": 5.59,
+ "note": "affine correction and short-game shrinkage were tested and made it WORSE on held-out data; simpler model kept"
+}
